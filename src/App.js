@@ -1,25 +1,29 @@
 import React, { Component } from 'react';
-import logo from './logo.svg';
 import './App.css';
 
+import projects from './projects.json';
+
 class App extends Component {
+
+
+  buildProjectCards() {
+    let cards = []
+    projects.forEach((project) => {
+      cards.push(<div className="card">{project.name}</div>);
+    });
+    return cards;
+  }
+
   render() {
+    console.log(projects);
     return (
       <div className="App">
-        <header className="App-header">
-          <img src={logo} className="App-logo" alt="logo" />
-          <p>
-            Edit <code>src/App.js</code> and save to reload.
-          </p>
-          <a
-            className="App-link"
-            href="https://reactjs.org"
-            target="_blank"
-            rel="noopener noreferrer"
-          >
-            Learn React
-          </a>
+        <header className="header">
+          Sean Lennaerts
         </header>
+        <div className="projects">
+          {this.buildProjectCards()}
+        </div>
       </div>
     );
   }
