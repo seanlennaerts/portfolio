@@ -3,7 +3,7 @@
         "name": "treddit",
         "gfy": "",
         "tags": ["JavaScript", "HTML", "CSS"],
-        "description": "A chrome extension that uses pictures or gfys from reddit as background images on trello. Uses background scripts to handle CORS requests to Reddit's JSON API. Asynchronously makes requests to gfycat (a popular .webm hosting site) to get information on the length of gfys.",
+        "description": "A chrome extension that uses images or gfys from reddit as background images on trello. Uses background scripts to handle CORS requests to Reddit's JSON API. Asynchronously makes requests to gfycat (a popular .webm hosting site) to get information on the length of gfys.",
         "link": "https://github.com/seanlennaerts/treddit"
     },
     {

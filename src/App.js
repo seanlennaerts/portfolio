@@ -5,9 +5,9 @@ import colors from './colors.json';
 import { library } from '@fortawesome/fontawesome-svg-core';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faGithub, faLinkedin } from '@fortawesome/free-brands-svg-icons';
-import { faEnvelope, faPhone, faFile, faExternalLinkAlt } from '@fortawesome/free-solid-svg-icons';
+import { faEnvelope, faPhone, faFile } from '@fortawesome/free-solid-svg-icons';
 
-library.add(faGithub, faEnvelope, faPhone, faLinkedin, faFile, faExternalLinkAlt);
+library.add(faGithub, faEnvelope, faPhone, faLinkedin, faFile);
 
 //https://api.gfycat.com/v1/gfycats/
 
@@ -31,7 +31,7 @@ function Tag(props) {
   return (
     <div
       className="tag"
-      style={{backgroundColor: colors[props.name.toLowerCase()]}}
+      style={{ backgroundColor: colors[props.name.toLowerCase()] }}
     >
       {props.name}
     </div>
@@ -93,11 +93,37 @@ function buildProjectCards() {
   return cards;
 }
 
+function buildRainbow() {
+  let count = {};
+  let total = 0;
+  projects.forEach((project) => {
+    project.tags.forEach((tag) => {
+      total++;
+      if (!count.hasOwnProperty(tag)) {
+        count[tag] = 1;
+      } else {
+        count[tag] = count[tag] + 1;
+      }
+    });
+  });
+  console.log(count);
+  console.log(total);
+  let spans = [];
+  for (let key in count) {
+    spans.push(
+      <span
+        style={{
+          width: `${count[key] / total * 100}%`,
+          background: colors[key.toLowerCase()]
+        }}>
+      </span>
+    );
+  }
+  return spans;
+}
+
 class App extends Component {
   render() {
-    console.log(library);
-
-    console.log(projects);
     return (
       <div className="App">
         <header className="header">
@@ -114,6 +140,7 @@ class App extends Component {
               prefix='fas'
               icon='envelope'
               text='***REMOVED***'
+              newTab
             />
             <Social
               link='https://github.com/seanlennaerts'
@@ -137,6 +164,9 @@ class App extends Component {
             />
           </div>
         </header>
+        <div className="rainbow">
+          {buildRainbow()}
+        </div>
         <div className="projects">
           {buildProjectCards()}
         </div>

@@ -7,7 +7,7 @@ p {
 }
 
 .header {
-  padding: 0rem 4rem;
+  padding: 0rem 4rem 1rem 4rem;
   background: #4392F1;
   min-height: 20rem;
   display: flex;
@@ -49,7 +49,7 @@ video {
   display: flex;
   flex-direction: row;
   flex-flow: wrap;
-  justify-content: space-evenly;
+  justify-content: center;
   width: 100%;
 }
 
@@ -58,6 +58,7 @@ video {
   padding: 1rem;
   transition: .2s;
   border-radius: .375rem;
+  margin: 0rem 1rem;
 }
 
 .social:hover {
@@ -69,7 +70,7 @@ video {
   display: grid;
   grid-template-columns: repeat(auto-fit, minmax(24rem, 1fr));
   grid-gap: 2rem;
-
+  background: #f9fcff;
 }
 
 .card {
@@ -78,6 +79,7 @@ video {
   box-shadow: 5px 5px 25px 0 rgba(46,61,73,.2);
   border-radius: .375rem;
   transition: .3s;
+  background: white;
 }
 
 .card:hover {
@@ -85,17 +87,16 @@ video {
 }
 
 .card-body {
-  padding: 1rem;
+  padding: 0rem 1rem 1rem 1rem;
   color: black;
 }
 
 .tag {
-  border-radius: 100px;
+  border-radius: .375rem;
   padding: 0.5rem 1rem;
   margin-left: 0.5rem;
   margin-top: 0.5rem;
   color: white;
-  font-weight: bold;
 }
 
 .tags {
@@ -104,4 +105,16 @@ video {
   justify-content: flex-end;
   width: 100%;
   flex-wrap: wrap;
+}
+
+.rainbow {
+  display: flex;
+  flex-direction: row;
+  width: 100%;
+  height: 0.5rem;
+  transition: .3s;
+}
+
+.rainbow:hover {
+  height: 10rem;
 }
