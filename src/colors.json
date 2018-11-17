@@ -1,0 +1,18 @@
+{
+    "javascript": "#f1e05a",
+    "react": "#61dafb",
+    "html": "#e34c26",
+    "css": "#563d7c",
+    "c++": "#563d7c",
+    "opencv": "#FFA500",
+    "dart": "#00B4AB",
+    "flutter": "#055A9D",
+    "node.js": "#69A063",
+    "firebase": "#FFCA27",
+    "google cloud": "#FBBC06",
+    "sqlite": "#054A64",
+    "react native": "#05A5D0",
+    "php": "#4F5D95",
+    "mysql": "#4579A1",
+    "typescript": "#2b7489"
+}

@@ -1,26 +1,65 @@
 [
     {
-        "name": "Project 1",
+        "name": "treddit",
         "gfy": "",
-        "tags": [],
-        "description": "beep boop"
+        "tags": ["JavaScript", "HTML", "CSS"],
+        "description": "A chrome extension that uses pictures or gfys from reddit as background images on trello. Uses background scripts to handle CORS requests to Reddit's JSON API. Asynchronously makes requests to gfycat (a popular .webm hosting site) to get information on the length of gfys.",
+        "link": "https://github.com/seanlennaerts/treddit"
     },
     {
-        "name": "Project 2",
+        "name": "lennaerts.me",
         "gfy": "",
-        "tags": [],
-        "description": "beep boop"
+        "tags": ["React", "JavaScript", "HTML", "CSS"],
+        "description": "This website",
+        "link": "https://github.com/seanlennaerts/resume"
     },
     {
-        "name": "Project 3",
-        "gfy": "",
-        "tags": [],
-        "description": "beep boop"
+        "name": "peachai",
+        "gfy": "https://giant.gfycat.com/VariableHomelyKingbird.webm",
+        "tags": ["OpenCV", "C++"],
+        "description": "Generating training data for a MarioKart Wii neural network.",
+        "link": "https://github.com/seanlennaerts/peachai"
     },
     {
-        "name": "Project 4",
+        "name": "dice",
         "gfy": "",
-        "tags": [],
-        "description": "beep boop"
+        "tags": ["OpenCV", "C++"],
+        "description": "Using computer vision in an attempt to detect dice.",
+        "link": "https://github.com/seanlennaerts/dice"
+    },
+    {
+        "name": "Notes app",
+        "gfy": "",
+        "tags": ["Flutter", "Dart", "SQLite"],
+        "description": "iOS Notes app clone made with Flutter.",
+        "link": "https://github.com/seanlennaerts/notes"
+    },
+    {
+        "name": "bikecouch",
+        "gfy": "",
+        "tags": ["Flutter", "Dart", "JavaScript", "Firebase", "Google Cloud"],
+        "description": "",
+        "link": "https://github.com/boxofsquares/bikecouch"
+    },
+    {
+        "name": "Groceries app",
+        "gfy": "",
+        "tags": ["React Native", "JavaScript"],
+        "description": "",
+        "link": "https://github.com/seanlennaerts/groceries"
+    },
+    {
+        "name": "GTheatre",
+        "gfy": "",
+        "tags": ["PHP", "MySQL", "JavaScript", "HTML", "CSS"],
+        "description": "",
+        "link": ""
+    },
+    {
+        "name": "Class scheduler",
+        "gfy": "",
+        "tags": ["TypeScript", "Node.js", "JavaScript", "HTML", "CSS"],
+        "description": "",
+        "link": ""
     }
 ]
