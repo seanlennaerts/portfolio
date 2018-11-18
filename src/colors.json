@@ -14,5 +14,6 @@
     "react native": "#05A5D0",
     "php": "#4F5D95",
     "mysql": "#4579A1",
-    "typescript": "#2b7489"
+    "typescript": "#2b7489",
+    "heroku": "#79589F"
 }

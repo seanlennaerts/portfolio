@@ -8,7 +8,7 @@ p {
 
 .header {
   padding: 0rem 4rem 1rem 4rem;
-  background: #4392F1;
+  background: linear-gradient(#4392F1, #3b83da);
   min-height: 20rem;
   display: flex;
   flex-direction: column;
@@ -38,7 +38,7 @@ svg {
   padding-right: 0.5rem;
 }
 
-video {
+video, img {
   border-radius: 0.375rem 0.375rem 0rem 0rem;
   width: 100%;
 }
@@ -60,7 +60,7 @@ video {
 }
 
 .social:hover {
-  background: #438ce4;
+  background: #3b7ed0;
 }
 
 .projects {
@@ -85,8 +85,10 @@ video {
 }
 
 .card-body {
-  padding: 0rem 1rem 1rem 1rem;
+  padding: 1rem;
   color: black;
+
+
 }
 
 .tag {

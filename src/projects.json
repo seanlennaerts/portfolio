@@ -1,65 +1,74 @@
 [
     {
         "name": "treddit",
-        "gfy": "",
+        "source": "https://giant.gfycat.com/PersonalAmusingBettong.webm",
+        "sourceType": "gfy" ,
         "tags": ["JavaScript", "HTML", "CSS"],
-        "description": "A chrome extension that uses images or gfys from reddit as background images on trello. Uses background scripts to handle CORS requests to Reddit's JSON API. Asynchronously makes requests to gfycat (a popular .webm hosting site) to get information on the length of gfys.",
+        "description": "A chrome extension that uses images or videos from reddit as background images on trello. Uses background scripts to handle CORS requests to Reddit's JSON API. Asynchronously makes requests to gfycat (a popular .webm hosting site) to get information on the source and length of videos.",
         "link": "https://github.com/seanlennaerts/treddit"
     },
     {
-        "name": "lennaerts.me",
-        "gfy": "",
-        "tags": ["React", "JavaScript", "HTML", "CSS"],
-        "description": "This website",
-        "link": "https://github.com/seanlennaerts/resume"
-    },
-    {
-        "name": "peachai",
-        "gfy": "https://giant.gfycat.com/VariableHomelyKingbird.webm",
-        "tags": ["OpenCV", "C++"],
-        "description": "Generating training data for a MarioKart Wii neural network.",
-        "link": "https://github.com/seanlennaerts/peachai"
+        "name": "bikecouch",
+        "source": "",
+        "sourceType": "gfy" ,
+        "tags": ["Flutter", "Dart", "JavaScript", "Firebase", "Google Cloud"],
+        "description": "Callenge a friend to take a picture of two objects (i.e. sunscreen and a flip-flop). Uses Firebase to authenticate users and Google's Cloud Functions and Google's Vision API to label objects in the photo.",
+        "link": "https://github.com/boxofsquares/bikecouch"
     },
     {
         "name": "dice",
-        "gfy": "",
+        "source": "https://giant.gfycat.com/BigParallelIndochinesetiger.webm",
+        "sourceType": "gfy" ,
         "tags": ["OpenCV", "C++"],
-        "description": "Using computer vision in an attempt to detect dice.",
+        "description": "Using computer vision to detect dice face numbers. Originally designed to display roll results to our remote D&D player. This didn't end up working for a number of reasons; it was a good excercise nonetheless.",
         "link": "https://github.com/seanlennaerts/dice"
     },
     {
         "name": "Notes app",
-        "gfy": "",
+        "source": "",
+        "sourceType": "gfy" ,
         "tags": ["Flutter", "Dart", "SQLite"],
-        "description": "iOS Notes app clone made with Flutter.",
+        "description": "A material design clone of the iOS Notes app made with Google's Flutter, with an emphasis on storing sensative data.",
         "link": "https://github.com/seanlennaerts/notes"
     },
     {
-        "name": "bikecouch",
-        "gfy": "",
-        "tags": ["Flutter", "Dart", "JavaScript", "Firebase", "Google Cloud"],
-        "description": "",
-        "link": "https://github.com/boxofsquares/bikecouch"
+        "name": "peachai",
+        "source": "https://giant.gfycat.com/VariableHomelyKingbird.webm",
+        "sourceType": "gfy" ,
+        "tags": ["OpenCV", "C++"],
+        "description": "Generating training data for a MarioKart Wii neural network. With the goal of making an AI that plays like me.",
+        "link": "https://github.com/seanlennaerts/peachai"
     },
     {
         "name": "Groceries app",
-        "gfy": "",
+        "source": "",
+        "sourceType": "gfy" ,
         "tags": ["React Native", "JavaScript"],
-        "description": "",
+        "description": "An iOS and Android app that let's two users keep track of grocery expenses. Data stored on Firebase's realtime database. App listens to changes on the database and suggests who should pay next in real time.",
         "link": "https://github.com/seanlennaerts/groceries"
     },
     {
+        "name": "lennaerts.me",
+        "source": "",
+        "sourceType": "" ,
+        "tags": ["React", "JavaScript", "HTML", "CSS"],
+        "description": "This website. Made with React, hosted on GitHub Pages.",
+        "link": "https://github.com/seanlennaerts/resume"
+    },
+    {
         "name": "GTheatre",
-        "gfy": "",
-        "tags": ["PHP", "MySQL", "JavaScript", "HTML", "CSS"],
-        "description": "",
+        "source": "",
+        "sourceType": "gfy" ,
+        "tags": ["Heroku", "PHP", "MySQL", "JavaScript", "HTML", "CSS"],
+        "description": "Database class project. A webapp for a fictional movie theater to manage screenings and for movie goers to purchase tickets. Employee and Movie data stored in a SQL database and the frontend was made with PHP and hosted on Heroku.",
         "link": ""
     },
     {
         "name": "Class scheduler",
-        "gfy": "",
+        "source": "",
+        "sourceType": "gfy" ,
         "tags": ["TypeScript", "Node.js", "JavaScript", "HTML", "CSS"],
-        "description": "",
+        "description": "Software engineering class project. Let's you select courses and buildings from UBC's Pair database and then it creates a schedule.",
         "link": ""
     }
 ]

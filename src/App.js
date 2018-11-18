@@ -50,6 +50,26 @@ function buildTags(tags) {
   return t;
 }
 
+function buildImageOrVideo(type, source) {
+  switch (type) {
+    case 'gfy':
+      return (<video
+        // autoPlay
+        loop
+        muted
+        playsInline
+        // controls
+      > 
+        <source src={source} type="video/webm" />
+      </video>
+      );
+    case 'image':
+      return (<img src={source} alt="screenshot" />);
+    default:
+      return;
+  }
+}
+
 function Card(props) {
   return (
     <a
@@ -58,13 +78,7 @@ function Card(props) {
       rel="noopener noreferrer"
     >
       <div className="card">
-        <video
-          autoPlay
-          muted
-          loop
-        >
-          <source src={props.gfy} type="video/webm" />
-        </video>
+        {buildImageOrVideo(props.sourceType, props.source)}
         <div className="card-body">
           <h2>{props.name}</h2>
           <p>{props.description}</p>
@@ -82,7 +96,8 @@ function buildProjectCards() {
   projects.forEach((project) => {
     cards.push(
       <Card
-        gfy={project.gfy}
+        sourceType={project.sourceType}
+        source={project.source}
         name={project.name}
         link={project.link}
         description={project.description}
@@ -106,8 +121,6 @@ function buildRainbow() {
       }
     });
   });
-  console.log(count);
-  console.log(total);
   let spans = [];
   for (let key in count) {
     spans.push(
@@ -122,26 +135,51 @@ function buildRainbow() {
   return spans;
 }
 
+var videos;
+var playing = [];
+
+function handleScroll() {
+  for (let i = 0; i < videos.length; i++) {
+    let video = videos[i];
+    let top = video.offsetTop;
+    let height = video.offsetHeight;
+    let bottom = top + height;
+
+    let visibleY = Math.max(0, Math.min(height, window.pageYOffset + window.innerHeight - top, bottom - window.pageYOffset));
+    let visible = visibleY / height;
+
+    if (visible > 0.5) {
+      if (!playing[i]){
+        let playPromise = video.play();
+        if (playPromise !== undefined) {
+          playPromise.then(_ => {
+            playing[i] = true;
+          });
+        }
+      }
+    } else {
+      if (playing[i]) {
+        video.pause();
+        playing[i] = false;
+      }
+    }
+  }
+}
+
+
 class App extends Component {
+  componentDidMount() {
+    videos = document.getElementsByTagName('video');
+    window.addEventListener('scroll', handleScroll);
+    window.addEventListener('resize', handleScroll);
+  }
+
   render() {
     return (
       <div className="App">
         <header className="header">
           <h1>Sean Lennaerts</h1>
           <div className="socials">
-            <Social
-              link='tel:***REMOVED***'
-              prefix='fas'
-              icon='phone'
-              text='***REMOVED***'
-            />
-            <Social
-              link='mailto:***REMOVED***'
-              prefix='fas'
-              icon='envelope'
-              text='***REMOVED***'
-              newTab
-            />
             <Social
               link='https://github.com/seanlennaerts'
               prefix='fab'
