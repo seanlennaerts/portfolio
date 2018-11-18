@@ -166,10 +166,10 @@ function handleScroll() {
   }
 }
 
-
 class App extends Component {
   componentDidMount() {
     videos = document.getElementsByTagName('video');
+    handleScroll(); //to start playing videos already in view
     window.addEventListener('scroll', handleScroll);
     window.addEventListener('resize', handleScroll);
   }
