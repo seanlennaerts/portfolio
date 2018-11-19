@@ -2,12 +2,26 @@
   user-select: none;
 }
 
+body {
+  background: #f9fcff;
+}
+
+h1 {
+  font-size: calc(1rem + 10vw);
+}
+
 p {
   line-height: 1.4rem;
 }
 
+a {
+  text-decoration: none;
+  color: white;
+}
+
+
 .header {
-  padding: 0rem 4rem 1rem 4rem;
+  padding: 0 4rem 1rem 4rem;
   background: linear-gradient(#4392F1, #3b83da);
   min-height: 20rem;
   display: flex;
@@ -26,29 +40,38 @@ p {
   color: white;
 }
 
-a {
-  text-decoration: none;
+
+
+@media only screen and (min-width: 600px) {
+  h1 {
+    font-size: 5rem;
+    white-space: nowrap;
+  }
 }
 
-h1 {
-  font-size: 5rem;
-}
 
 svg {
   padding-right: 0.5rem;
 }
 
 video, img {
-  border-radius: 0.375rem 0.375rem 0rem 0rem;
   width: 100%;
 }
 
-.socials {
-  display: flex;
-  flex-direction: row;
-  flex-flow: wrap;
-  justify-content: center;
-  width: 100%;
+@media only screen and (min-width: 600px) {
+  video, img {
+    border-radius: 0.375rem 0.375rem 0 0;
+    width: 100%;
+  }
+}
+
+@media only screen and (min-width: 600px) {
+  .socials {
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    width: 100%;
+  }
 }
 
 .social {
@@ -56,39 +79,52 @@ video, img {
   padding: 1rem;
   transition: .2s;
   border-radius: .375rem;
-  margin: 0rem 1rem;
+  margin: 0 1rem;
+  white-space: nowrap;
 }
 
-.social:hover {
-  background: #3b7ed0;
+@media only screen and (min-width: 600px) {
+  .social:hover {
+    background: #3b7ed0;
+  }
 }
 
-.projects {
-  padding: 2rem 4rem;
-  display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(24rem, 1fr));
-  grid-gap: 2rem;
-  background: #f9fcff;
+@media only screen and (min-width: 600px) {
+  .projects {
+    padding: 2rem 4rem;
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(24rem, 1fr));
+    grid-gap: 2rem;
+  }
 }
 
 .card {
   width: 100%;
-  /* height: 100%; */
-  box-shadow: 5px 5px 25px 0 rgba(46,61,73,.2);
-  border-radius: .375rem;
-  transition: .3s;
+  margin: 2rem 0;
+  /* box-shadow: 5px 5px 25px 0 rgba(46,61,73,.2); */
   background: white;
 }
 
-.card:hover {
-  box-shadow: 2px 4px 8px 0 rgba(46,61,73,.2);
+@media only screen and (min-width: 600px) {
+  .card {
+    width: 100%;
+    /* height: 100%; */
+    box-shadow: 5px 5px 25px 0 rgba(46,61,73,.2);
+    border-radius: .375rem;
+    transition: .3s;
+    background: white;
+  }
+}
+
+@media only screen and (min-width: 600px) {
+  .card:hover {
+    box-shadow: 2px 4px 8px 0 rgba(46,61,73,.2);
+  }
 }
 
 .card-body {
   padding: 1rem;
   color: black;
-
-
 }
 
 .tag {
@@ -115,6 +151,8 @@ video, img {
   transition: .3s .1s;
 }
 
-.rainbow:hover {
-  height: 10rem;
+@media only screen and (min-width: 600px) {
+  .rainbow:hover {
+    height: 10rem;
+  }
 }

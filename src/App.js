@@ -5,16 +5,15 @@ import colors from './colors.json';
 import { library } from '@fortawesome/fontawesome-svg-core';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faGithub, faLinkedin } from '@fortawesome/free-brands-svg-icons';
-import { faEnvelope, faPhone, faFile } from '@fortawesome/free-solid-svg-icons';
+import { faFile } from '@fortawesome/free-solid-svg-icons';
 
-library.add(faGithub, faEnvelope, faPhone, faLinkedin, faFile);
+library.add(faGithub, faLinkedin, faFile);
 
 //https://api.gfycat.com/v1/gfycats/
 
 function Social(props) {
   return (
     <a
-      className="social-link"
       href={props.link}
       target={props.newTab ? "_blank" : ""}
       rel={props.newTab ? "noopener noreferrer" : ""}
