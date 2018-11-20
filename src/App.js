@@ -62,6 +62,18 @@ function buildImageOrVideo(type, source) {
         <source src={source} type="video/webm" />
       </video>
       );
+    case 'ios':
+      return (
+        <div className="ios">
+          <video
+            loop
+            muted
+            playsInline
+          >
+            <source src={source} type="video/webm" />
+          </video>
+        </div>
+      );
     case 'image':
       return (<img src={source} alt="screenshot" />);
     default:

@@ -20,13 +20,13 @@
         "source": "https://giant.gfycat.com/BigParallelIndochinesetiger.webm",
         "sourceType": "gfy" ,
         "tags": ["OpenCV", "C++"],
-        "description": "Using computer vision to detect dice face numbers. Originally designed to display roll results to our remote D&D player. This didn't end up working for a number of reasons.",
+        "description": "Using computer vision to detect dice face numbers. Originally designed to display roll results to our remote D&D player.",
         "link": "https://github.com/seanlennaerts/dice"
     },
     {
         "name": "Notes app",
-        "source": "",
-        "sourceType": "gfy" ,
+        "source": "https://giant.gfycat.com/TiredShoddyAnophelesmosquito.webm",
+        "sourceType": "ios" ,
         "tags": ["Flutter", "Dart", "SQLite"],
         "description": "A material design clone of the iOS Notes app made with Google's Flutter, with an emphasis on storing sensative data.",
         "link": "https://github.com/seanlennaerts/notes"
@@ -48,27 +48,27 @@
         "link": "https://github.com/seanlennaerts/groceries"
     },
     {
+        "name": "GTheatre",
+        "source": "https://giant.gfycat.com/BleakInconsequentialGermanshepherd.webm",
+        "sourceType": "gfy" ,
+        "tags": ["Heroku", "PHP", "MySQL", "JavaScript", "HTML", "CSS"],
+        "description": "Database class group project. A webapp for a fictional movie theater to manage screenings and for movie goers to purchase tickets. Employee and Movie data stored in a SQL database and the frontend was made with PHP and hosted on Heroku.",
+        "link": ""
+    },
+    {
+        "name": "Class scheduler",
+        "source": "https://giant.gfycat.com/FocusedTallDiscus.webm",
+        "sourceType": "gfy" ,
+        "tags": ["TypeScript", "Node.js", "JavaScript", "HTML", "CSS"],
+        "description": "Software engineering class partner project. Let's you select courses and buildings from UBC's Pair database and then it greedily creates a schedule.",
+        "link": ""
+    },
+    {
         "name": "lennaerts.me",
         "source": "",
         "sourceType": "" ,
         "tags": ["React", "JavaScript", "HTML", "CSS"],
         "description": "This website. Made with React, hosted on GitHub Pages.",
         "link": "https://github.com/seanlennaerts/resume"
-    },
-    {
-        "name": "GTheatre",
-        "source": "",
-        "sourceType": "gfy" ,
-        "tags": ["Heroku", "PHP", "MySQL", "JavaScript", "HTML", "CSS"],
-        "description": "Database class project. A webapp for a fictional movie theater to manage screenings and for movie goers to purchase tickets. Employee and Movie data stored in a SQL database and the frontend was made with PHP and hosted on Heroku.",
-        "link": ""
-    },
-    {
-        "name": "Class scheduler",
-        "source": "",
-        "sourceType": "gfy" ,
-        "tags": ["TypeScript", "Node.js", "JavaScript", "HTML", "CSS"],
-        "description": "Software engineering class project. Let's you select courses and buildings from UBC's Pair database and then it creates a schedule.",
-        "link": ""
     }
 ]
