@@ -8,6 +8,7 @@ import { faGithub, faLinkedin } from '@fortawesome/free-brands-svg-icons';
 import { faFile } from '@fortawesome/free-solid-svg-icons';
 
 library.add(faGithub, faLinkedin, faFile);
+var mobile = false;
 
 //https://api.gfycat.com/v1/gfycats/
 
@@ -49,33 +50,32 @@ function buildTags(tags) {
   return t;
 }
 
-function buildImageOrVideo(type, source) {
+function buildVideo(type, source) {
   switch (type) {
     case 'gfy':
-      return (<video
-        // autoPlay
-        loop
-        muted
-        playsInline
-        // controls
-      > 
-        <source src={source} type="video/webm" />
-      </video>
+      return (
+        <video
+          muted
+          loop
+          playsInline
+          poster={`https://thumbs.gfycat.com/${source}-mobile.jpg`}
+        >
+          <source src={mobile ? `https://thumbs.gfycat.com/${source}-mobile.mp4` : `https://giant.gfycat.com/${source}.webm`} />
+        </video>
       );
     case 'ios':
       return (
         <div className="ios">
           <video
-            loop
             muted
+            loop
             playsInline
+            poster={`https://thumbs.gfycat.com/${source}-mobile.jpg`}
           >
-            <source src={source} type="video/webm" />
+            <source src={mobile ? `https://thumbs.gfycat.com/${source}-mobile.mp4` : `https://giant.gfycat.com/${source}.webm`} />
           </video>
         </div>
       );
-    case 'image':
-      return (<img src={source} alt="screenshot" />);
     default:
       return;
   }
@@ -89,7 +89,7 @@ function Card(props) {
       rel="noopener noreferrer"
     >
       <div className="card">
-        {buildImageOrVideo(props.sourceType, props.source)}
+        {buildVideo(props.sourceType, props.source)}
         <div className="card-body">
           <h2>{props.name}</h2>
           <p>{props.description}</p>
@@ -160,7 +160,7 @@ function handleScroll() {
     let visible = visibleY / height;
 
     if (visible > 0.5) {
-      if (!playing[i]){
+      if (!playing[i]) {
         let playPromise = video.play();
         if (playPromise !== undefined) {
           playPromise.then(_ => {
@@ -178,6 +178,11 @@ function handleScroll() {
 }
 
 class App extends Component {
+
+  componentWillMount() {
+    mobile = !!navigator.platform && /iPhone|iPod/.test(navigator.platform);
+  }
+
   componentDidMount() {
     videos = document.getElementsByTagName('video');
     handleScroll(); //to start playing videos already in view

@@ -1,7 +1,7 @@
 [
     {
         "name": "treddit",
-        "source": "https://giant.gfycat.com/PersonalAmusingBettong.webm",
+        "source": "PersonalAmusingBettong",
         "sourceType": "gfy" ,
         "tags": ["JavaScript", "HTML", "CSS"],
         "description": "A chrome extension that uses images or videos from reddit as background images on trello. Uses background scripts to handle CORS requests to Reddit's JSON API. Asynchronously makes requests to gfycat (a popular .webm hosting site) to get information on the source and length of videos.",
@@ -17,7 +17,7 @@
     },
     {
         "name": "dice",
-        "source": "https://giant.gfycat.com/BigParallelIndochinesetiger.webm",
+        "source": "BigParallelIndochinesetiger",
         "sourceType": "gfy" ,
         "tags": ["OpenCV", "C++"],
         "description": "Using computer vision to detect dice face numbers. Originally designed to display roll results to our remote D&D player.",
@@ -25,7 +25,7 @@
     },
     {
         "name": "Notes app",
-        "source": "https://giant.gfycat.com/TiredShoddyAnophelesmosquito.webm",
+        "source": "TiredShoddyAnophelesmosquito",
         "sourceType": "ios" ,
         "tags": ["Flutter", "Dart", "SQLite"],
         "description": "A material design clone of the iOS Notes app made with Google's Flutter, with an emphasis on storing sensative data.",
@@ -33,7 +33,7 @@
     },
     {
         "name": "peachai",
-        "source": "https://giant.gfycat.com/VariableHomelyKingbird.webm",
+        "source": "VariableHomelyKingbird",
         "sourceType": "gfy" ,
         "tags": ["OpenCV", "C++"],
         "description": "Generating training data for a MarioKart Wii neural network. With the goal of making an AI that plays like me.",
@@ -49,7 +49,7 @@
     },
     {
         "name": "GTheatre",
-        "source": "https://giant.gfycat.com/BleakInconsequentialGermanshepherd.webm",
+        "source": "BleakInconsequentialGermanshepherd",
         "sourceType": "gfy" ,
         "tags": ["Heroku", "PHP", "MySQL", "JavaScript", "HTML", "CSS"],
         "description": "Database class group project. A webapp for a fictional movie theater to manage screenings and for movie goers to purchase tickets. Employee and Movie data stored in a SQL database and the frontend was made with PHP and hosted on Heroku.",
@@ -57,7 +57,7 @@
     },
     {
         "name": "Class scheduler",
-        "source": "https://giant.gfycat.com/FocusedTallDiscus.webm",
+        "source": "FocusedTallDiscus",
         "sourceType": "gfy" ,
         "tags": ["TypeScript", "Node.js", "JavaScript", "HTML", "CSS"],
         "description": "Software engineering class partner project. Let's you select courses and buildings from UBC's Pair database and then it greedily creates a schedule.",
