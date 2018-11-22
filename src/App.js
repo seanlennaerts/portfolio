@@ -1,4 +1,5 @@
 import React, { Component } from 'react';
+import { throttle } from 'lodash';
 import './App.css';
 import projects from './projects.json';
 import colors from './colors.json';
@@ -148,46 +149,60 @@ function buildRainbow() {
 
 var videos;
 var playing = [];
+var numColumns;
 
 function handleScroll() {
-  for (let i = 0; i < videos.length; i++) {
-    let video = videos[i];
-    let top = video.offsetTop;
-    let height = video.offsetHeight;
+  for (let i = 0; i < videos.length; i += numColumns) {
+    let top = videos[i].offsetTop;
+    let height = videos[i].offsetHeight;
     let bottom = top + height;
 
     let visibleY = Math.max(0, Math.min(height, window.pageYOffset + window.innerHeight - top, bottom - window.pageYOffset));
-    let visible = visibleY / height;
+    // let visible = visibleY / height;
 
-    if (visible > 0.5) {
-      if (!playing[i]) {
-        let playPromise = video.play();
-        if (playPromise !== undefined) {
-          playPromise.then(_ => {
-            playing[i] = true;
-          });
+    if (visibleY > 100) {
+      for (let j = i; j < i + numColumns; j++) {
+        console.log(j)
+        try {
+          if (!playing[j]) {
+            let playPromise = videos[j].play();
+            if (playPromise !== undefined) {
+              playPromise.then(_ => {
+                playing[j] = true;
+              });
+            }
+          }
+        } catch (err) {
+          console.log('no more videos on row');
         }
       }
     } else {
-      if (playing[i]) {
-        video.pause();
-        playing[i] = false;
+      for (let j = i; j < i + numColumns; j++) {
+        if (playing[j]) {
+          videos[j].pause();
+          playing[j] = false;
+        }
       }
     }
   }
+  console.log(playing);
 }
 
 class App extends Component {
-
   componentWillMount() {
-    mobile = !!navigator.platform && /iPhone|iPod/.test(navigator.platform);
+    mobile = !!navigator.platform && /iPad|iPhone|iPod/.test(navigator.platform);
   }
 
   componentDidMount() {
     videos = document.getElementsByTagName('video');
+
+    let projectsWidth = parseInt(window.getComputedStyle(document.getElementById('projects')).width);
+    let cardWidth = document.getElementsByClassName('card')[0].offsetWidth;
+    numColumns = Math.round(projectsWidth / cardWidth);
+
     handleScroll(); //to start playing videos already in view
-    window.addEventListener('scroll', handleScroll);
-    window.addEventListener('resize', handleScroll);
+    window.addEventListener('scroll', throttle(handleScroll, 1000));
+    window.addEventListener('resize', throttle(handleScroll, 1000));
   }
 
   render() {
@@ -221,7 +236,7 @@ class App extends Component {
         <div className="rainbow">
           {buildRainbow()}
         </div>
-        <div className="projects">
+        <div id="projects">
           {buildProjectCards()}
         </div>
         <footer className="footer">

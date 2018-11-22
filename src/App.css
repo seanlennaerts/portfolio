@@ -7,7 +7,8 @@ body {
 }
 
 h1 {
-  font-size: calc(1rem + 10vw);
+  font-size: 12vw;
+  white-space: nowrap;
 }
 
 @media only screen and (min-width: 37.5em) {
@@ -73,7 +74,7 @@ video {
 .social {
   font-size: 1rem;
   padding: 1rem;
-  transition: .2s;
+  transition: background .2s;
   border-radius: .375rem;
   margin: 0 1rem;
   white-space: nowrap;
@@ -86,7 +87,7 @@ video {
 }
 
 @media only screen and (min-width: 37.5em) {
-  .projects {
+  #projects {
     padding: 2rem 4rem;
     display: grid;
     grid-template-columns: repeat(auto-fit, minmax(24rem, 1fr));
@@ -96,9 +97,9 @@ video {
 
 .card {
   width: 100%;
-  margin: 2rem 0;
   box-shadow: 5px 5px 25px 0 rgba(46,61,73,.2);
   background: white;
+  margin: 2rem 0;
 }
 
 @media only screen and (min-width: 37.5em) {
@@ -106,8 +107,9 @@ video {
     width: 100%;
     box-shadow: 5px 5px 25px 0 rgba(46,61,73,.2);
     border-radius: .375rem;
-    transition: .3s;
+    transition: box-shadow .3s;
     background: white;
+    margin: 0;
   }
 }
 
@@ -143,7 +145,7 @@ video {
   flex-direction: row;
   width: 100%;
   height: 0.5rem;
-  transition: .3s .1s;
+  transition: height .3s .1s;
 }
 
 @media only screen and (min-width: 37.5em) {
@@ -156,7 +158,7 @@ video {
   width: 15rem;
   padding: 2rem 0.5rem;
   background: black;
-  border-radius: 1.3rem;
+  border-radius: 1.2rem;
   margin: auto;
 }
 

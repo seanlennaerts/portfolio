@@ -53,15 +53,15 @@
         "sourceType": "gfy" ,
         "tags": ["Heroku", "PHP", "MySQL", "JavaScript", "HTML", "CSS"],
         "description": "Database class group project. A webapp for a fictional movie theater to manage screenings and for movie goers to purchase tickets. Employee and Movie data stored in a SQL database and the frontend was made with PHP and hosted on Heroku.",
-        "link": ""
+        "link": "https://github.com/hjy0102/GTheatre"
     },
     {
-        "name": "Class scheduler",
+        "name": "Course scheduler",
         "source": "FocusedTallDiscus",
         "sourceType": "gfy" ,
         "tags": ["TypeScript", "Node.js", "JavaScript", "HTML", "CSS"],
         "description": "Software engineering class partner project. Let's you select courses and buildings from UBC's Pair database and then it greedily creates a schedule.",
-        "link": ""
+        "link": "https://github.com/seanlennaerts/course-scheduler"
     },
     {
         "name": "lennaerts.me",
