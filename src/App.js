@@ -161,9 +161,9 @@ function handleScroll() {
     let bottom = top + height;
 
     let visibleY = Math.max(0, Math.min(height, window.pageYOffset + window.innerHeight - top, bottom - window.pageYOffset));
-    // let visible = visibleY / height;
+    let visible = visibleY / height;
 
-    if (visibleY > 100) {
+    if (visible > 0.2) {
       if (!playing[i]) {
         let playPromise = videos[i].play();
         if (playPromise !== undefined) {
@@ -191,8 +191,8 @@ class App extends Component {
     let cardWidth = document.getElementsByClassName('card')[0].offsetWidth;
 
     handleScroll(Math.round(projectsWidth / cardWidth)); //to start playing videos already in view
-    window.addEventListener('scroll', throttle(handleScroll, 1000));
-    window.addEventListener('resize', throttle(handleScroll, 1000));
+    window.addEventListener('scroll', throttle(handleScroll, 500));
+    window.addEventListener('resize', throttle(handleScroll, 500));
   }
 
   render() {
