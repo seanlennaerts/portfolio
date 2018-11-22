@@ -167,7 +167,7 @@ function handleScroll() {
       if (!playing[i]) {
         let playPromise = videos[i].play();
         if (playPromise !== undefined) {
-          playPromise.then(setPlaying(i));
+          playPromise.then(() => setPlaying(i));
         }
       }
     } else {
