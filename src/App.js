@@ -149,10 +149,13 @@ function buildRainbow() {
 
 var videos;
 var playing = [];
-var numColumns;
+
+function setPlaying(index) {
+  playing[index] = true;
+}
 
 function handleScroll() {
-  for (let i = 0; i < videos.length; i += numColumns) {
+  for (let i = 0; i < videos.length; i++) {
     let top = videos[i].offsetTop;
     let height = videos[i].offsetHeight;
     let bottom = top + height;
@@ -161,31 +164,19 @@ function handleScroll() {
     // let visible = visibleY / height;
 
     if (visibleY > 100) {
-      for (let j = i; j < i + numColumns; j++) {
-        console.log(j)
-        try {
-          if (!playing[j]) {
-            let playPromise = videos[j].play();
-            if (playPromise !== undefined) {
-              playPromise.then(_ => {
-                playing[j] = true;
-              });
-            }
-          }
-        } catch (err) {
-          console.log('no more videos on row');
+      if (!playing[i]) {
+        let playPromise = videos[i].play();
+        if (playPromise !== undefined) {
+          playPromise.then(setPlaying(i));
         }
       }
     } else {
-      for (let j = i; j < i + numColumns; j++) {
-        if (playing[j]) {
-          videos[j].pause();
-          playing[j] = false;
-        }
+      if (playing[i]) {
+        videos[i].pause();
+        playing[i] = false;
       }
     }
   }
-  console.log(playing);
 }
 
 class App extends Component {
@@ -198,9 +189,8 @@ class App extends Component {
 
     let projectsWidth = parseInt(window.getComputedStyle(document.getElementById('projects')).width);
     let cardWidth = document.getElementsByClassName('card')[0].offsetWidth;
-    numColumns = Math.round(projectsWidth / cardWidth);
 
-    handleScroll(); //to start playing videos already in view
+    handleScroll(Math.round(projectsWidth / cardWidth)); //to start playing videos already in view
     window.addEventListener('scroll', throttle(handleScroll, 1000));
     window.addEventListener('resize', throttle(handleScroll, 1000));
   }
