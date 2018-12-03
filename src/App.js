@@ -6,9 +6,9 @@ import colors from './colors.json';
 import { library } from '@fortawesome/fontawesome-svg-core';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faGithub, faLinkedin } from '@fortawesome/free-brands-svg-icons';
-import { faFile } from '@fortawesome/free-solid-svg-icons';
+import { faEnvelope, faFile } from '@fortawesome/free-solid-svg-icons';
 
-library.add(faGithub, faLinkedin, faFile);
+library.add(faEnvelope, faGithub, faLinkedin, faFile);
 var mobile = false;
 
 //https://api.gfycat.com/v1/gfycats/
@@ -201,6 +201,13 @@ class App extends Component {
         <header className="header">
           <h1>Sean Lennaerts</h1>
           <div className="socials">
+            <Social
+              link='mailto:seanlenny@gmail.com'
+              prefix='fas'
+              icon='envelope'
+              text='seanlenny@gmail.com'
+              newTab
+            />
             <Social
               link='https://github.com/seanlennaerts'
               prefix='fab'
