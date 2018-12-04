@@ -82,24 +82,32 @@ function buildVideo(type, source) {
   }
 }
 
+// function flip() {
+//   // div.classList.toggle('flipped');
+//   alert(this);
+// }
+
 function Card(props) {
   return (
-    <a
-      href={props.link}
-      target="_blank"
-      rel="noopener noreferrer"
-    >
-      <div className="card">
-        {buildVideo(props.sourceType, props.source)}
-        <div className="card-body">
-          <h2>{props.name}</h2>
-          <p>{props.description}</p>
-          <div className="tags">
-            {buildTags(props.tags)}
+    <div className="card-wrapper" onClick={(card) => {
+      card.classList.toggle('flipped');
+    }}>
+      <div className="card-inner">
+        <div className="card-front">
+          {buildVideo(props.sourceType, props.source)}
+          <div className="card-body">
+            <h2>{props.name}</h2>
+            <p>{props.description}</p>
+            <div className="tags">
+              {buildTags(props.tags)}
+            </div>
           </div>
         </div>
+        <div className="card-back">
+          beep boops
+        </div>
       </div>
-    </a>
+    </div>
   );
 }
 
@@ -155,28 +163,28 @@ function setPlaying(index) {
 }
 
 function handleScroll() {
-  for (let i = 0; i < videos.length; i++) {
-    let top = videos[i].offsetTop;
-    let height = videos[i].offsetHeight;
-    let bottom = top + height;
+  // for (let i = 0; i < videos.length; i++) {
+  //   let top = videos[i].offsetTop;
+  //   let height = videos[i].offsetHeight;
+  //   let bottom = top + height;
 
-    let visibleY = Math.max(0, Math.min(height, window.pageYOffset + window.innerHeight - top, bottom - window.pageYOffset));
-    let visible = visibleY / height;
+  //   let visibleY = Math.max(0, Math.min(height, window.pageYOffset + window.innerHeight - top, bottom - window.pageYOffset));
+  //   let visible = visibleY / height;
 
-    if (visible > 0.2) {
-      if (!playing[i]) {
-        let playPromise = videos[i].play();
-        if (playPromise !== undefined) {
-          playPromise.then(() => setPlaying(i));
-        }
-      }
-    } else {
-      if (playing[i]) {
-        videos[i].pause();
-        playing[i] = false;
-      }
-    }
-  }
+  //   if (visible > 0.2) {
+  //     if (!playing[i]) {
+  //       let playPromise = videos[i].play();
+  //       if (playPromise !== undefined) {
+  //         playPromise.then(() => setPlaying(i));
+  //       }
+  //     }
+  //   } else {
+  //     if (playing[i]) {
+  //       videos[i].pause();
+  //       playing[i] = false;
+  //     }
+  //   }
+  // }
 }
 
 class App extends Component {
@@ -188,7 +196,7 @@ class App extends Component {
     videos = document.getElementsByTagName('video');
 
     let projectsWidth = parseInt(window.getComputedStyle(document.getElementById('projects')).width);
-    let cardWidth = document.getElementsByClassName('card')[0].offsetWidth;
+    let cardWidth = document.getElementsByClassName('card-wrapper')[0].offsetWidth;
 
     handleScroll(Math.round(projectsWidth / cardWidth)); //to start playing videos already in view
     window.addEventListener('scroll', throttle(handleScroll, 500));
