@@ -202,10 +202,10 @@ class App extends Component {
           <h1>Sean Lennaerts</h1>
           <div className="socials">
             <Social
-              link='mailto:seanlenny@gmail.com'
+              link='mailto:seanlennaerts@gmail.com'
               prefix='fas'
               icon='envelope'
-              text='seanlenny@gmail.com'
+              text='seanlennaerts@gmail.com'
               newTab
             />
             <Social
