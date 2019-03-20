@@ -143,7 +143,7 @@ function handleScroll() {
 class App extends Component {
   componentWillMount() {
     // vanity url
-    let vanity = window.location.pathname.substring(1);
+    let vanity = window.location.href.split('#')[1];
     company = companies[vanity];
     mobile = !!navigator.platform && /iPad|iPhone|iPod/.test(navigator.platform);
   }
