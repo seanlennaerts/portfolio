@@ -144,7 +144,7 @@ video {
   display: flex;
   flex-direction: row;
   width: 100%;
-  height: 0.5rem;
+  height: 0.3rem;
   transition: height .3s .1s;
 }
 
