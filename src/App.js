@@ -2,14 +2,16 @@ import React, { Component } from 'react';
 import { throttle } from 'lodash';
 import './App.css';
 import projects from './projects.json';
+import companies from './companies.json';
 import colors from './colors.json';
 import { library } from '@fortawesome/fontawesome-svg-core';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faGithub, faLinkedin } from '@fortawesome/free-brands-svg-icons';
-import { faEnvelope, faFile } from '@fortawesome/free-solid-svg-icons';
+import { faEnvelope, faFile, faTimesCircle } from '@fortawesome/free-solid-svg-icons';
 
-library.add(faEnvelope, faGithub, faLinkedin, faFile);
+library.add(faEnvelope, faGithub, faLinkedin, faFile, faTimesCircle);
 var mobile = false;
+var company;
 
 //https://api.gfycat.com/v1/gfycats/
 
@@ -61,7 +63,8 @@ function buildVideo(type, source) {
           playsInline
           poster={`https://thumbs.gfycat.com/${source}-mobile.jpg`}
         >
-          <source src={mobile ? `https://thumbs.gfycat.com/${source}-mobile.mp4` : `https://giant.gfycat.com/${source}.webm`} />
+          {/* <source src={mobile ? `https://thumbs.gfycat.com/${source}-mobile.mp4` : `https://giant.gfycat.com/${source}.webm`} /> */}
+          <source src={`https://thumbs.gfycat.com/${source}-mobile.mp4`} />
         </video>
       );
     case 'ios':
@@ -73,7 +76,8 @@ function buildVideo(type, source) {
             playsInline
             poster={`https://thumbs.gfycat.com/${source}-mobile.jpg`}
           >
-            <source src={mobile ? `https://thumbs.gfycat.com/${source}-mobile.mp4` : `https://giant.gfycat.com/${source}.webm`} />
+            {/* <source src={mobile ? `https://thumbs.gfycat.com/${source}-mobile.mp4` : `https://giant.gfycat.com/${source}.webm`} /> */}
+            <source src={`https://thumbs.gfycat.com/${source}-mobile.mp4`} />
           </video>
         </div>
       );
@@ -103,49 +107,6 @@ function Card(props) {
   );
 }
 
-function buildProjectCards() {
-  let cards = []
-  projects.forEach((project) => {
-    cards.push(
-      <Card
-        sourceType={project.sourceType}
-        source={project.source}
-        name={project.name}
-        link={project.link}
-        description={project.description}
-        tags={project.tags}
-      />
-    );
-  });
-  return cards;
-}
-
-function buildRainbow() {
-  let count = {};
-  let total = 0;
-  projects.forEach((project) => {
-    project.tags.forEach((tag) => {
-      total++;
-      if (!count.hasOwnProperty(tag)) {
-        count[tag] = 1;
-      } else {
-        count[tag] = count[tag] + 1;
-      }
-    });
-  });
-  let spans = [];
-  for (let key in count) {
-    spans.push(
-      <span
-        style={{
-          width: `${count[key] / total * 100}%`,
-          background: colors[key.toLowerCase()]
-        }}>
-      </span>
-    );
-  }
-  return spans;
-}
 
 var videos;
 var playing = [];
@@ -181,6 +142,9 @@ function handleScroll() {
 
 class App extends Component {
   componentWillMount() {
+    // vanity url
+    let vanity = window.location.pathname.substring(1);
+    company = companies[vanity];
     mobile = !!navigator.platform && /iPad|iPhone|iPod/.test(navigator.platform);
   }
 
@@ -195,10 +159,83 @@ class App extends Component {
     window.addEventListener('resize', throttle(handleScroll, 500));
   }
 
+  buildProjectCards() {
+    let cards = []
+    projects.forEach((project) => {
+      cards.push(
+        <Card
+          sourceType={project.sourceType}
+          source={project.source}
+          name={project.name}
+          link={project.link}
+          description={project.description}
+          tags={project.tags}
+        />
+      );
+
+    });
+    return cards;
+  }
+
+  buildRainbow() {
+    let count = {};
+    let total = 0;
+    projects.forEach((project) => {
+      project.tags.forEach((tag) => {
+        total++;
+        if (!count.hasOwnProperty(tag)) {
+          count[tag] = 1;
+        } else {
+          count[tag] = count[tag] + 1;
+        }
+      });
+    });
+    let spans = [];
+    for (let key in count) {
+      spans.push(
+        <span
+          style={{
+            width: `${count[key] / total * 100}%`,
+            background: colors[key.toLowerCase()]
+          }}>
+        </span>
+      );
+    }
+    return spans;
+  }
+
+  buildNotifToRecruiter() {
+    let count = 0;
+    projects.forEach((project) => {
+      project.tags.forEach((tag) => {
+        if (tag.toLowerCase() === company.language.toLowerCase()) {
+          console.log(tag)
+          count++;
+        }
+      });
+    });
+    return (
+      <div class="notif slide-in-top">
+        <span class="emoji" role="img" aria-label="wave">👋</span>
+        <div><h2>Hello {company.name}! </h2>
+          <p>I have {count}&nbsp;
+            <button
+              // onClick={() => this.state.filter.length > 0 ? this.setState({ filter: '' }) : this.setState({ filter: company.language })}
+              style={{ backgroundColor: colors[company.language.toLowerCase()] }}>
+              {company.language}
+            </button>
+            {count === 1 ? ' project ' : ' projects '}
+            that you may be interested in
+          </p>
+        </div>
+      </div>);
+  }
+
   render() {
     return (
       <div className="App">
         <header className="header">
+          {company ? this.buildNotifToRecruiter() : null}
           <h1>Sean Lennaerts</h1>
           <div className="socials">
             <Social
@@ -222,19 +259,13 @@ class App extends Component {
               text='/seanlennaerts'
               newTab
             />
-            <Social
-              link=''
-              prefix='fas'
-              icon='file'
-              text='Resume'
-            />
           </div>
         </header>
         <div className="rainbow">
-          {buildRainbow()}
+          {this.buildRainbow()}
         </div>
         <div id="projects">
-          {buildProjectCards()}
+          {this.buildProjectCards()}
         </div>
         <footer className="footer">
 
